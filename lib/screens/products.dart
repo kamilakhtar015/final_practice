@@ -1,17 +1,18 @@
-// ignore: file_names
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class FriendsListScreen extends StatefulWidget {
-  const FriendsListScreen({Key? key}) : super(key: key);
+class Transactions extends StatefulWidget {
+  const Transactions({super.key});
 
   @override
-  State<FriendsListScreen> createState() => _FriendsListScreenState();
+  State<Transactions> createState() => _TransactionsState();
 }
 
-class _FriendsListScreenState extends State<FriendsListScreen> {
-  final CollectionReference _friends =
-      FirebaseFirestore.instance.collection('Friends');
+class _TransactionsState extends State<Transactions> {
+  final CollectionReference _transaction =
+      FirebaseFirestore.instance.collection('Transaction');
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,8 @@ class _FriendsListScreenState extends State<FriendsListScreen> {
         ],
       ),
       body: StreamBuilder(
-        stream: _friends.orderBy('Createdtime', descending: true).snapshots(),
+        stream:
+            _transaction.orderBy('Createdtime', descending: true).snapshots(),
         builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
           if (streamSnapshot.hasData) {
             return ListView.builder(
@@ -50,8 +52,9 @@ class _FriendsListScreenState extends State<FriendsListScreen> {
                 final DocumentSnapshot documentSnapshot =
                     streamSnapshot.data!.docs[index];
                 final String name = documentSnapshot['Name'] ?? '';
-                final String email = documentSnapshot['Email'] ?? '';
-                final String contactNo = documentSnapshot['ContactNo'] ?? '';
+                // final String icon = documentSnapshot['Icon'] ?? '';
+                // final DateTime dateAdded = documentSnapshot['Date'];
+                final Double amount = documentSnapshot['Amount'] ?? '';
 
                 return Card(
                   child: ListTile(
@@ -59,8 +62,8 @@ class _FriendsListScreenState extends State<FriendsListScreen> {
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(email),
-                        Text(contactNo),
+                        Text(name),
+                        Text(amount.toString()),
                       ],
                     ),
                     trailing: SizedBox(

@@ -10,13 +10,13 @@ void main() {
       ..overrideDevicesForAllScenarios(devices: [Device.phone])
       ..addScenario(
         widget: const MyApp(),
-        name: 'First Test Page',
+        name: 'ui_sc',
       );
 
     await tester.pumpDeviceBuilder(builder,
         wrapper: materialAppWrapper(
             theme: ThemeData.light(), platform: TargetPlatform.android));
 
-    await screenMatchesGolden(tester, 'second_screenshot');
+    await screenMatchesGolden(tester, 'ui_sc');
   });
 }

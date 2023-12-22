@@ -1,7 +1,9 @@
-import 'package:final_practice/dummy_work.dart';
 import 'package:final_practice/screens/friendsList_screen.dart';
 import 'package:final_practice/screens/home_screen.dart';
-// import 'package:final_practice/screens/home_screen.dart';
+import 'package:final_practice/screens/friendsList_screen.dart';
+import 'package:final_practice/screens/products.dart';
+import 'package:final_practice/screens/ui.dart';
+import 'package:final_practice/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -22,11 +24,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const LandingScreen(),
     );
   }
 }
