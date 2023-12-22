@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "25834670399",
+    "project_id": "finalpaperpractice-810be",
+    "storage_bucket": "finalpaperpractice-810be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:25834670399:android:d0ed5c973a0886d373ab8a",
+        "android_client_info": {
+          "package_name": "com.example.final_practice"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-yDDswHZo0av_Pq2ozzGrvUyobOvKS_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
